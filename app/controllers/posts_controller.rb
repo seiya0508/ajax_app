@@ -4,12 +4,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    #メモ作成時に未読の情報を保存するようにしたこと
+    post = Post.create(content: params[:content], checked: false)
+    #レスポンスをJSONに変更したこと
+    render json:{ post: post }
   end
 
   def checked
-    
     post = Post.find(params[:id])
     if post.checked
       post.update(checked: false)

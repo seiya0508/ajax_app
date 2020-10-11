@@ -4,7 +4,7 @@ function memo() {
   const submit = document.getElementById("submit");
   //投稿するボタンを「click」した場合に実行される関数を定義
   submit.addEventListener("click", (e) => {
-    //オブジェクトを生成し、引数にフォームの要素を渡すことで、そのフォームに入力された値を取得でき
+    //オブジェクトを生成し、引数にフォームの要素を渡すことで、そのフォームに入力された値を取得できる
     const formData = new FormData(document.getElementById("form"));
     //非同期通信を実装するために必要なXMLHttpRequestのオブジェクトを生成
     const XHR = new XMLHttpRequest();
@@ -20,7 +20,7 @@ function memo() {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
-      //itemは、レスポンスとして返却されたメモのレコードデータを取得しています。
+      //itemは、レスポンスとして返却されたメモのレコードデータを取得しています。HTTPリクエストを非同期で行うことができます
       const item = XHR.response.post;
       //listは、HTMLを描画する場所を指定する際に使用する「描画する親要素」のlistの要素を取得しています。
       const list = document.getElementById("list");
